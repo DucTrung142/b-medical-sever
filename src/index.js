@@ -5,7 +5,8 @@ const express = require('express');
 const cors = require('cors');
 
 //router
-const provider = require('./router/provider');
+const providerRouter = require('./router/provider');
+const uploadRoute = require('./router/upload');
 
 //conect DB
 db.connect();
@@ -22,8 +23,12 @@ app.get('/', (req, res) => {
 });
 
 //use router
-app.use('/user', provider);
+app.use('/user', providerRouter);
+app.use('/upload', uploadRoute);
 
-const PORT = process.env.PORT || 5000;
+
+
+const PORT = process.env.PORT || 8000;
+
 
 app.listen(PORT, () => console.log(`Sever run at http://localhost:${PORT}`));

@@ -62,6 +62,7 @@ const ProviderSchema = new Schema({
     type: String,
     // required: true,
   },
+  
 });
 
 module.exports = mongoose.model('Provider', ProviderSchema);
