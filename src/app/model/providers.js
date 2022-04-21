@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProviderSchema = new Schema({
+  walletAddress: {
+    type: String,
+    // required: true,
+  },
   taxcode: {
     type: String,
     // required: true,
@@ -10,23 +14,23 @@ const ProviderSchema = new Schema({
     type: String,
     // required: true,
   },
-  username: {
-    type: String,
-    required: true,
-  },
-  position: {
+  representName: {
     type: String,
     // required: true,
   },
-  telephone: {
+  representPosition: {
     type: String,
     // required: true,
   },
-  passport: {
+  representPhone: {
     type: String,
     // required: true,
   },
-  daterange_user: {
+  representId: {
+    type: String,
+    // required: true,
+  },
+  daterange: {
     type: Date,
     //   required:true,
   },
@@ -34,55 +38,27 @@ const ProviderSchema = new Schema({
     type: String,
     // required: true,
   },
-  company: {
+  businessName: {
     type: String,
     // required: true,
   },
-  international: {
+  businessNameInternational: {
     type: String,
     // required: true,
   },
-  province: {
+  businessAddress: {
     type: String,
     // required: true,
   },
-  district: {
+  businessPhone: {
     type: String,
     // required: true,
   },
-  ward: {
-    type: String,
-    // required: true,
-  },
-  address: {
-    type: String,
-    // required: true,
-  },
-  telephone: {
-    type: String,
-    // required: true,
-  },
-  fax: {
+  businessFax: {
     type: String,
     // required: true,
   },
   certificateUrl: {
-    type: String,
-    // required: true,
-  },
-  daterange_company: {
-    type: String,
-    // required: true,
-  },
-  licensing_authorities: {
-    type: String,
-    // required: true,
-  },
-  group_medical: {
-    type: String,
-    // required: true,
-  },
-  authorization_letter: {
     type: String,
     // required: true,
   },

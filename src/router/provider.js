@@ -6,27 +6,20 @@ const Provider = require('../app/model/providers');
 //port provider
 router.post('/provider', async (req, res) => {
   const newProvider = new Provider({
+    walletAddress: req.body.walletAddress,
     taxcode: req.body.taxcode,
     email: req.body.email,
-    username: req.body.username,
-    position: req.body.position,
-    telephone: req.body.telephone,
-    passport: req.body.passport,
-    daterange_user: req.body.daterange_user,
+    representName: req.body.representName,
+    representPosition: req.body.representPosition,
+    representPhone: req.body.representPhone,
+    representId: req.body.representId,
+    daterange: req.body.daterange,
     issuedby: req.body.issuedby,
-    company: req.body.company,
-    international: req.body.international,
-    province: req.body.province,
-    district: req.body.district,
-    ward: req.body.ward,
-    address: req.body.address,
-    telephone: req.body.telephone,
-    fax: req.body.fax,
-    certificateUrl: req.body.certificateUrl,
-    daterange_company: req.body.daterange_company,
-    licensing_authorities: req.body.licensing_authorities,
-    group_medical: req.body.group_medical,
-    authorization_letter: req.body.authorization_letter,
+    businessName: req.body.businessName,
+    businessNameInternational: req.body.businessNameInternational,
+    businessAddress: req.body.businessAddress,
+    businessPhone: req.body.businessPhone,
+    businessFax: req.body.businessFax,
   });
   try {
     const saveProvider = await newProvider.save();
@@ -38,6 +31,20 @@ router.post('/provider', async (req, res) => {
     res.json({
       error: error,
     });
+  }
+});
+
+//get provider
+router.get('/:providerId', async (req, res) => {
+  try {
+    const providerId = req.params.providerId;
+    console.log(req.params.providerId);
+    const provider = await Provider.find({ walletAddress: providerId });
+    res.status(200).json({
+      provider,
+    });
+  } catch (error) {
+    return res.status(401).json({ error: error });
   }
 });
 
