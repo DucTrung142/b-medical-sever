@@ -24,6 +24,6 @@ app.get('/', (req, res) => {
 //use router
 app.use('/user', provider);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Sever run at http://localhost:${PORT}`));

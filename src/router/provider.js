@@ -20,7 +20,9 @@ router.post('/provider', async (req, res) => {
     businessAddress: req.body.businessAddress,
     businessPhone: req.body.businessPhone,
     businessFax: req.body.businessFax,
+    certificateUrl: req.body.certificateUrl,
   });
+  console.log(req.body);
   try {
     const saveProvider = await newProvider.save();
 
