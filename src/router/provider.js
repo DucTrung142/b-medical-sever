@@ -50,4 +50,16 @@ router.get('/:providerId', async (req, res) => {
   }
 });
 
+//get all provider
+router.get('/provider/getall', async (req, res) => {
+  try {
+    const provider = await db.collection('providers').find().toArray();
+    res.status(200).json({
+      provider,
+    });
+  } catch (error) {
+    return res.status(401).json({ error: error });
+  }
+});
+
 module.exports = router;
