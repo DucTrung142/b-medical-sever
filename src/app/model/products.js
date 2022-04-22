@@ -78,7 +78,15 @@ const ProductSchema = new Schema({
     type: Number,
     // required: true,
   },
-  generalInformationAboutDevice: {
+  productUrl: {
+    type: String,
+    // required: true,
+  },
+  generalInfo: {
+    type: String,
+    // required: true,
+  },
+  userManual: {
     type: String,
     // required: true,
   },

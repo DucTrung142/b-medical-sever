@@ -62,4 +62,25 @@ router.get('/provider/getall', async (req, res) => {
   }
 });
 
+//delete one product
+router.delete('/:providerId', async (req, res) => {
+  try {
+    const providerId = req.params.providerId;
+    console.log(providerId);
+    const provider = await Provider.findOneAndDelete(
+      { providerId },
+      {
+        new: true,
+      }
+    );
+    if (provider.deletedCount === 0) {
+      return res.status(404).json();
+    } else {
+      return res.status(200).json(provider);
+    }
+  } catch (error) {
+    return res.status(401).json({ error: error });
+  }
+});
+
 module.exports = router;

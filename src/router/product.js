@@ -25,7 +25,9 @@ router.post('/', async (req, res) => {
     contactPhoneNumber: req.body.contactPhoneNumber,
     businessAddress: req.body.businessAddress,
     quantity: req.body.quantity,
-    generalInformationAboutDevice: req.body.generalInformationAboutDevice,
+    productUrl: req.body.productUrl,
+    generalInfo: req.body.generalInfo,
+    userManual: req.body.userManual,
   });
   console.log(req.body);
   try {
@@ -56,7 +58,7 @@ router.get('/:productId', async (req, res) => {
 });
 
 //get all product
-router.get('/product/getall', async (req, res) => {
+router.get('/getproduct/getall', async (req, res) => {
   try {
     const product = await db.collection('products').find().toArray();
     res.status(200).json({
@@ -66,4 +68,25 @@ router.get('/product/getall', async (req, res) => {
     return res.status(401).json({ error: error });
   }
 });
+
+//delete one product
+router.delete('/:productId', async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const product = await Product.findByIdAndDelete(
+      { productId },
+      {
+        new: true,
+      }
+    );
+    if (product.deletedCount === 0) {
+      return res.status(404).json();
+    } else {
+      return res.status(200).json(product);
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error });
+  }
+});
+
 module.exports = router;
