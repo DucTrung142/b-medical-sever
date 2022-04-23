@@ -10,23 +10,11 @@ const ProductSchema = new Schema({
     type: String,
     // required: true,
   },
-  tradenames: {
-    type: String,
-    // required: true,
-  },
-  model: {
-    type: String,
-    // required: true,
-  },
   unit: {
     type: String,
     // required: true,
   },
   price: {
-    type: Number,
-    // required: true,
-  },
-  classificationRisk: {
     type: Number,
     // required: true,
   },
@@ -38,22 +26,7 @@ const ProductSchema = new Schema({
     type: String,
     // required: true,
   },
-  owningCountry: {
-    type: String,
-    // required: true,
-  },
-  ownerFirm: {
-    type: String,
-    // required: true,
-  },
-  yearOfManufacture: {
-    type: Number,
-    // required: true,
-  },
-  origin: {
-    type: String,
-    // required: true,
-  },
+
   dateOfManufacture: {
     type: Date,
     // required: true,

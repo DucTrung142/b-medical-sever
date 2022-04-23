@@ -8,17 +8,10 @@ router.post('/', async (req, res) => {
   const newProduct = new Product({
     productType: req.body.productType,
     productName: req.body.productName,
-    tradenames: req.body.tradenames,
-    model: req.body.model,
     unit: req.body.unit,
     price: req.body.price,
-    classificationRisk: req.body.classificationRisk,
     manufacturer: req.body.manufacturer,
     countryOfManufacture: req.body.countryOfManufacture,
-    owningCountry: req.body.owningCountry,
-    ownerFirm: req.body.ownerFirm,
-    yearOfManufacture: req.body.yearOfManufacture,
-    origin: req.body.origin,
     dateOfManufacture: req.body.dateOfManufacture,
     expirationDate: req.body.expirationDate,
     NameOfBusinessAnnouncingPrice: req.body.NameOfBusinessAnnouncingPrice,
@@ -68,25 +61,4 @@ router.get('/getproduct/getall', async (req, res) => {
     return res.status(401).json({ error: error });
   }
 });
-
-//delete one product
-router.delete('/:productId', async (req, res) => {
-  try {
-    const productId = req.params.productId;
-    const product = await Product.findByIdAndDelete(
-      { productId },
-      {
-        new: true,
-      }
-    );
-    if (product.deletedCount === 0) {
-      return res.status(404).json();
-    } else {
-      return res.status(200).json(product);
-    }
-  } catch (error) {
-    return res.status(500).json({ error: error });
-  }
-});
-
 module.exports = router;
