@@ -51,7 +51,8 @@ router.get('/:providerId', async (req, res) => {
   }
 });
 
-//get all
+//get all provider
+
 router.get('/provider/getall', async (req, res) => {
   try {
     const provider = await db.collection('providers').find().toArray();
@@ -63,5 +64,5 @@ router.get('/provider/getall', async (req, res) => {
   }
 });
 
-
 module.exports = router;
+

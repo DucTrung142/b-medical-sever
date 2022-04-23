@@ -1,12 +1,15 @@
 require('dotenv').config();
 
 const db = require('./config/db');
+
 const express = require('express');
 const cors = require('cors');
 
 //router
 const providerRouter = require('./router/provider');
+const productRouter = require('./router/product');
 const uploadRoute = require('./router/upload');
+const { path } = require('express/lib/application');
 
 //conect DB
 db.connect();
@@ -25,6 +28,7 @@ app.get('/', (req, res) => {
 //use router
 app.use('/user', providerRouter);
 app.use('/upload', uploadRoute);
+app.use('/product', productRouter);
 
 
 
