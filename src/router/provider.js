@@ -1,8 +1,6 @@
 const express = require('express');
 const { db } = require('../app/model/providers');
 const router = express.Router();
-
-const { db } = require('../app/model/providers');
 const Provider = require('../app/model/providers');
 
 //port provider
