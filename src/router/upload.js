@@ -4,6 +4,13 @@ const cloudinary = require('cloudinary').v2;
 
 const upload = require('../config/db/multer');
 
+// we will upload image on cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     const result = await cloudinary.uploader.upload(req.file.path, {
