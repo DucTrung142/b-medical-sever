@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const { db } = require('../app/model/products');
 const Product = require('../app/model/products');
 
 //port product

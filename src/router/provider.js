@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const { db } = require('../app/model/providers');
 const Provider = require('../app/model/providers');
 
 //port provider
@@ -68,13 +69,13 @@ router.delete('/:providerId', async (req, res) => {
     const providerId = req.params.providerId;
     console.log(providerId);
     const provider = await Provider.findOneAndDelete(
-      { providerId },
+      { walletAddress: providerId },
       {
         new: true,
       }
     );
     if (provider.deletedCount === 0) {
-      return res.status(404).json();
+      return res.status(404).json({ msg: "can't delete" });
     } else {
       return res.status(200).json(provider);
     }
