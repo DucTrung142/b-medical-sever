@@ -58,7 +58,7 @@ const ProductSchema = new Schema({
   generalInfo: {
     type: String,
     // required: true,
-  }, 
+  },
   userManual: {
     type: String,
     // required: true,
