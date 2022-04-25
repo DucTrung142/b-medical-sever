@@ -5,6 +5,7 @@ const Provider = require('../app/model/providers');
 
 //port provider
 router.post('/provider', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const newProvider = new Provider({
     walletAddress: req.body.walletAddress,
     taxcode: req.body.taxcode,
