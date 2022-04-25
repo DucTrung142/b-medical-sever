@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ProductSchema = new Schema({
+const ProductApprovedSchema = new Schema({
   productType: {
     type: String,
     // required: true,
@@ -63,10 +63,6 @@ const ProductSchema = new Schema({
     type: String,
     // required: true,
   },
-  product_approved: {
-    type: Boolean,
-    default: false,
-  },
 });
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model('Product_approved', ProductApprovedSchema);

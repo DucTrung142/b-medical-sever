@@ -12,8 +12,6 @@ cloudinary.config({
 });
 
 router.post('/', upload.single('image'), async (req, res) => {
-  console.log(123);
-  console.log(req);
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
   try {
     const result = await cloudinary.uploader.upload(req.file.path, {
